@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revelando senha com JavaScript</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #senha{
+            border: none;
+            border-bottom: 1px solid #474747;
+            outline: none;
+            
+        }
+        #senha:focus{
+            border-bottom: 1px dotted #474747;
+            
+        }
+        #check {
+            position: relative;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            -webkit-appearance: none;
+            outline: none;
+            transition: 0.5s;
+            font-size: 20px;
+        }
+        #check::before{
+            content: "🙈";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #check:checked::before{
+            content: '🐵';
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form action="#">
+            <input type="password" name="" id="senha">
+            <input type="checkbox" onclick="revelarSenha()" name="" id="check">
+        </form>
+    </div>
+
+    <script>
+
+        let senha = document.getElementById('senha')
+        let check = document.getElementById('check')
+
+        function revelarSenha() {
+            if (check.checked == true){
+                senha.type = "text";
+            }else{
+                senha.type = "password";
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
